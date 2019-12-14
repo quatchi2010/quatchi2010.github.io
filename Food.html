@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="./style.css">
+        <title>Food</title>
+    </head> 
+               
+    <body style="background-color: #000000">
+        <a name="top"></a>
+        <nav class="Navbar">
+            <div>
+                <ul class="flex">
+                    <li><a class="nav-link" href="index.html">HomePage</a></li>
+                    <li><a class="nav-link" href="Personal.html">Personal</a></li>
+                    <li><a class="nav-link" href="Tour.html">Tour</a></li>
+                    <li><a class="nav-link" href="Links.html">Useful Info</a></li>
+                    <li><a class="nav-link-active" href="Food.html">Food</a></li>
+                </ul>
+            </div>
+        </nav>
+        <section class="Main">
+            <h1>The Best Food around NCTU.</h1>
+            <div id="map"></div>
+            <script>
+            function initMap() {
+                var neighborhoods = [
+                {lat: 24.7979927, lng: 120.9960929},
+                {lat: 24.7978677, lng: 120.9963671},
+                {lat: 24.7984755, lng: 120.9971946},
+                {lat: 24.7978594, lng: 120.9981109},
+                {lat: 24.7984481, lng: 120.9978658},
+                {lat: 24.7964210, lng: 120.9985480},
+                {lat: 24.7982751, lng: 120.9979870},
+                {lat: 24.7977076, lng: 120.9981444},
+                {lat: 24.7985421, lng: 120.9978557},
+                {lat: 24.7968188, lng: 120.9993179},
+                {lat: 24.7968520, lng: 120.9983946},
+                {lat: 24.7966945, lng: 120.9990287}
+                ];
+
+                var myLatLng = {lat: 24.7877499, lng: 120.9984668 };
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 15.,
+                    center: myLatLng
+                });
+                var markers = [];
+                for (var i = 0; i < neighborhoods.length; i++) {
+                    loc = neighborhoods[i];
+                    markers.push(new google.maps.Marker({
+                        position: loc,
+                        map: map,
+                        animation: google.maps.Animation.DROP
+                    }));
+                }
+            }
+            </script>
+            <script  async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWuhaGSkM2jgkCD2Og5YEW068ok-D40uQ&callback=initMap">
+            </script>
+        </section>
+        <footer>  
+            <p>Created by James Lee NCTUECE</p>
+        </footer>  
+    </body>
+    
+
+</html>
